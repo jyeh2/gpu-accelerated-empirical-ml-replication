@@ -1,0 +1,11 @@
+
+venv/
+data/
+.ipynb_checkpoints/
+
+__pycache__/
+*.pyc
+
+# External downloaded datasets (MNIST, HF, etc)
+external_data/
+data_cache/
