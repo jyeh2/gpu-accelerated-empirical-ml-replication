@@ -1,0 +1,11 @@
+
+venv/
+data/cleaned_data/
+data/modeling_data/
+data/raw_data/
+data/external_data
+.ipynb_checkpoints/
+
+__pycache__/
+*.pyc
+
