@@ -1,0 +1,14 @@
+Models:
+cuML: XGBoost, RF
+PyTorch: ANN,
+
+Splits: 
+20% train / 80% test
+50% train / 50% test
+80% train / 20% test
+
+Data:
+Wine(Red, White)
+Cup98(Predicting how likely donate)
+Online_Retail(Predicting return or not)
+MNIST(Predicting <5(0,1,2,3,4), >=5(5,6,7,8,9))
