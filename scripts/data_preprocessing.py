@@ -6,8 +6,11 @@ import os
 import pandas as pd
 from scipy import sparse
 
-cleaned_data_path = "../data/cleaned_data/"
-model_data_path = "../data/modeling_data/"
+base = os.path.dirname(os.path.abspath(__file__))
+
+cleaned_data_path = os.path.join(base, "../data/cleaned_data/")
+model_data_path   = os.path.join(base, "../data/modeling_data/")
+
 
 
 def save_model_data(df, file_name):
@@ -195,3 +198,6 @@ sparse.save_npz(
     os.path.join(model_data_path, "cup98_features.npz"),
     sparse.csr_matrix(X_var),
 )
+
+import shutil
+shutil.rmtree(cleaned_data_path)

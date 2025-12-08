@@ -10,25 +10,31 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import tarfile
 
-# Paths
-raw_data_path = "../data/raw_data/"
-clean_data_path = "../data/cleaned_data/"
+base = os.path.dirname(os.path.abspath(__file__))
 
+# Paths
+raw_data_path = os.path.join(base, "../data/raw_data/")
+clean_data_path = os.path.join(base, "../data/cleaned_data/")
 
 def save_clean_data(df, file_name):
     os.makedirs(clean_data_path, exist_ok=True)
     df.to_csv(os.path.join(clean_data_path, file_name), index=False)
 
-
-
-
 def extract_tar_xz(tar_path, extract_to="../data/"):
+       # directory of this script
+    tar_path = os.path.join(base, tar_path)
+    extract_to = os.path.join(base, extract_to)
+
+    os.makedirs(extract_to, exist_ok=True)
+
     with tarfile.open(tar_path, "r:xz") as tar:
         tar.extractall(path=extract_to)
 
-extract_tar_xz("../data/data.tar")
+extract_tar_xz("../data/data.tar.xz")
 
 # ---- Load raw datasets ----
+
+
 wine_red_data_raw = pd.read_csv(
     os.path.join(raw_data_path, "winequality/winequality-red.csv")
 )

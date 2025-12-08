@@ -9,8 +9,11 @@ import pandas as pd
 from scipy import sparse
 from sklearn.model_selection import train_test_split  # imported in notebook, rarely used
 
-model_data_path = "../data/modeling_data/"
-splits_path = "../data/splits/"
+base = os.path.dirname(os.path.abspath(__file__))
+
+model_data_path = os.path.join(base, "../data/modeling_data/")
+splits_path     = os.path.join(base, "../data/splits/")
+
 
 os.makedirs(os.path.join(splits_path, "7030"), exist_ok=True)
 os.makedirs(os.path.join(splits_path, "5050"), exist_ok=True)
@@ -273,3 +276,6 @@ save_split(
     "5050",
 )
 print("CUP98 5050 leakage:", len(set(idx_train_5050) & set(idx_test_5050)))
+
+import shutil
+shutil.rmtree(model_data_path)
