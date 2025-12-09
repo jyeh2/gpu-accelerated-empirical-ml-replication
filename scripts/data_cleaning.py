@@ -36,10 +36,10 @@ extract_tar_xz("../data/data.tar.xz")
 
 
 wine_red_data_raw = pd.read_csv(
-    os.path.join(raw_data_path, "winequality/winequality-red.csv")
+    os.path.join(raw_data_path, "winequality/winequality-red.csv"), sep=";"
 )
 wine_white_data_raw = pd.read_csv(
-    os.path.join(raw_data_path, "winequality/winequality-white.csv")
+    os.path.join(raw_data_path, "winequality/winequality-white.csv"), sep=";"
 )
 
 online_retail_data_raw = pd.read_excel(
